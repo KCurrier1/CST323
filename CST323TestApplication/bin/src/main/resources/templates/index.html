@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+				layout:decorate="layouts/preLoginTemplate">
+	<head>
+		<meta charset="UTF-8">
+		<title>CST-339 Milestone Project</title>
+	</head>
+	
+	<body>
+	<!--This replaces the body from the preLogin Layout-->
+		<div layout:fragment="content">
+			<!--This is replaced by the message sent by the home controller-->
+			<h2 th:text="${welcomeMessage}">This is my default text</h2><br/>
+			<h3>A Brief Description:</h3>
+			<p style="width: 50%;">
+				This is a eCommerce site for basic accessories such as bags, belts, and masks. 
+				The Twist: our site will allow users to post their own items to sell as well as 
+				be able to buy from and possible trade with other users.
+			</p>
+		</div>
+	</body>
+
+</html>

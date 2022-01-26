@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width-device-width, initial-scale=1">
+	<title th:text="${title}">CST-339 Milestone</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css">
+	<link rel="stylesheet" href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css">
+	<link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.2.0/css/responsive.dataTables.css">
+	<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+	<script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<script src="https://cdn.datatables.net/responsive/2.2.0/js/responsive.dataTables.js"></script>
+	<link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+	<div align="center">
+		<!--Insert Header Fragment-->
+		<div th:replace="layouts/postLogin :: header">My Header</div>
+		
+		<div class="textContainer">
+			<!-- Page Title and Log -->
+			<h2 th:text="${title}">Default Message Text</h2><br/>
+			
+			<!--Main Body Content-->
+			<section layout:fragment="content">
+				<p>My Body Content</p>
+			</section>
+		</div>
+		
+		<!--Insert Fotter Fragment-->
+		<div th:replace="layouts/postLogin :: footer">My Footer</div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,46 @@
+/* This is where all the re-used css styling is located.
+As of this time we have opted to not use Bootstrap*/
+
+/* CSS needed for Gradient Background */
+body {
+    margin: 0;
+    background: linear-gradient(180deg,
+            hsla(316, 68%, 50%, 1) 0%,					/*#d629a8*/
+            hsla(0, 0%, 0%, 1) 50%,
+            hsla(225, 30%, 50%, 1) 100%);					/*#5B6EA6*/
+    background-repeat: repeat-x;
+    background-size: cover;
+    font-family: Georgia, "Times New Roman", Times, serif;
+    color: white;
+    min-height: 1000px;
+    width: 65%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+input
+{
+	color:black;
+}
+
+th, td
+{
+	padding: 2px 5px 2px 5px;
+}
+
+/* Container for text where it can be seen against the background */
+.textContainer {
+    background-color: rgba(91, 110, 166, 0.5);
+    overflow: hidden;
+    padding: 10px;
+    margin: 25px;
+    width: 85%;
+    border-radius: 25px;
+}
+
+/* CSS needed to center an element on the page */
+.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}

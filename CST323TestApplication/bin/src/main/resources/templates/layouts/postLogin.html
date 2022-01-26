@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+	<meta charset="UTF-8">
+	<title th:text="${title}">CST-339 Milestone</title>
+</head>
+<body>
+	<div th:fragment="header">
+<!--		<img th:src="@{/images/LBanner.jpg}" style="position: fixed; top: 0%; left: 0%; width:17%; height:100vh"/>
+		<img th:src="@{/images/RBanner.jpg}" style="position: fixed; top: 0%; right: 0%; width:17%; height:100vh"/>-->
+		<div align="center">
+		<img th:src="@{/images/Logo.png}" style="width: 40%; padding: 5px;"/>
+		</div>
+		<div class="bs-example">
+			<nav class="navbar navbar-default">
+				<!-- Brand and Toggle get grouped for better mobile display-->
+				<div class="navbar-header">
+					<button type="button" data-target="#navbarCollapse" data-toggle="collapse" class="navbar-toggle">
+						<span class="sr-only">Toggle Navigation</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+					<a href="#" class="navbar-brand">Style="Essential"</a>
+				</div>
+				<!--Collection of nav links and other content for toggling-->
+				<div id="navbarCollapse" class="collapse navbar-collapse">
+					<ul class="nav navbar-nav">
+                   		<li><a href="/">Home</a></li>
+                   		<li><a href="/products/">Products</a></li>
+                   		<li><a href="/products/addProduct">Create Product</a></li>
+			        </ul>
+					<ul class="nav navbar-nav navbar-right">
+			            <li><a href="/login/">Logout</a></li>
+                	</ul>
+				</div>
+			</nav>
+		</div>
+	</div>
+	<!--Common Footer Fragment-->
+	<div th:fragment="footer">
+		<h5 style="color: purple; text-align:center; position:fixed; bottom:0; width: 65%;">Copyright 2021 Grand Canyon University</h5>
+	</div>
+</body>
+</html>

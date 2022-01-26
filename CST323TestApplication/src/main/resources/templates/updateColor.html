@@ -1,0 +1,48 @@
+<html xmlns:th="http://thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+				layout:decorate="layouts/defaultTemplate">
+<head>
+  <meta charset="utf-8">
+  <title>Update Color</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="author" content="">
+  <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+	<script>
+			function getHexValue() 
+			{
+			  var color = document.getElementById("colorPicker").value;
+			  document.getElementById("hex").innerHTML = color;
+			}
+	</script>
+</head>
+
+<body>
+  
+<div layout:fragment="content">
+	<form action="#" th:action="@{doEdit}" th:object="${colorModel}" method="post">
+	<h2 th:text="${title}">Default Message Text</h2>
+	<div class="card" style="width: 75%;">				
+		  <div class="card-body text-center d-flex justify-content-center align-items-center flex-column">
+		  	<!--color id attribute of the color model-->
+			<input type='hidden' name='id' th:value="${colorModel.id}">
+		    <p>Pick your Color using the Buttons Below</p>
+		    <input onchange="getHexValue()" type="color" id="colorPicker" th:value="*{hex}" th:field="*{hex}"> ← Color Picker</input><br/>
+		    <h3>The hex code of the currently selected color is:</h3>
+		    <h2 id="hex" th:value="${colorModel.hex}"></h2>
+		  </div>
+		</div>
+		<tr>
+		<input class="btn btn-primary" type="submit" value="Save Color?" />
+		<input class="btn btn-secondary" action="action" type="button" onclick="history.go(-1)" value="Back to List">
+		</tr>
+	</table>
+	
+	<!--This is where all errors from the above form are displayed-->
+	<div th:if="${#fields.hasErrors('*')}">List of Errors</div>
+	<div th:each="err : ${#fields.errors('*')}">
+		<span style="color:red" th:text="${err}" class="fieldError"></span>
+	</div>
+	
+</form>
+</div>
+
+</body>

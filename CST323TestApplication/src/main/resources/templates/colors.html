@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+				layout:decorate="layouts/defaultTemplate">
+<head>
+  <meta charset="utf-8">
+  <title>Colors</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+	<style>
+		th
+		{
+			text-align: center;
+			padding: 10px;
+		}
+		td
+		{
+			text-align: center;
+			padding: 10px;
+			margin: auto;
+		}
+	</style>
+	<script>
+		function setHexValue(id) 
+		{
+			var white = "#ffffff"
+			var color = document.getElementById(id).innerHTML;
+			document.getElementById(color).style.backgroundColor = color;
+			document.getElementById(color).style.color = white;
+		}
+	</script>
+</head>
+
+<body>
+  
+<div layout:fragment="content">
+<h1 th:text="${resultMessage}">:)</h1>
+<h2 th:text="${title}">Default Message Text</h2>
+<h4>(Click hex code to preview color!)</h4>
+<table style="width:50%">
+	<thead>
+		<tr>
+			<th style="text-align:center">Color Number</th>
+			<th style="text-align:center">Hex Color</th>
+			<th style="text-align:center">Update</th>
+			<th style="text-align:center">Delete</th>
+		<th>
+	</thead>
+	<tbody>
+		<tr th:if="${colors.empty}">
+			<td style="text-align:center" colspan="4"> No colors Available </td>
+		</tr>
+		<tr th:each="color : ${colors}">
+			<td style="text-align:center"><h5 th:text="${color.id}">000000001</h5></td>
+			<td style="text-align:center;" th:id="${color.hex}"><h5 th:text="${color.hex}" th:id="${color.id}" th:value="${color.hex}" th:onclick="setHexValue(this.id)">color 1</h5></td>
+			<td style="text-align:center;"><form action="#" th:action="@{editView}" method="post" th:object="${ColorModel}"><input type='hidden' name='id' th:value="${color.id}"><input type='submit' value='Edit'></form></td>
+			<td style="text-align:center;"><form action="#" th:action="@{doDelete}" method="post" th:object="${ColorModel}"><input type='hidden' name='id' th:value="${color.id}"><input type='submit' value='Delete'></form></td>
+		</tr>
+	</tbody>
+</table>
+<br/>
+<a class="btn btn-primary" th:href="@{addColor/}" role="button">Add a new Color?</a>
+<a class="btn btn-secondary" th:href="@{/}" role="button">Back to Home</a>
+</div>
+
+<script>
+</script>
+
+</body>

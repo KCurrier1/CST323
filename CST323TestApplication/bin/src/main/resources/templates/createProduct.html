@@ -1,0 +1,69 @@
+<!-- This is currently a filler page until we implement the pages 
+that come after logging in just to ensure our login functions are working-->
+
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="layouts/postLoginTemplate">
+<head>
+  <meta name="description" content="Webpage description goes here" />
+  <meta charset="utf-8">
+  <title>Create a new Product</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="author" content="">
+  <link rel="stylesheet" href="css/style.css">
+  <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+</head>
+
+<body>
+  
+<div layout:fragment="content">
+	<form action="#" th:action="@{createProduct}" th:object="${productModel}" method="post">
+	<table>
+		<tr>
+			<!--Product name attribute of the product model with error checking-->
+			<td><input type="hidden" th:field="*{ProductId}"></td><td>
+		</tr>
+		<tr>
+			<!--Product name attribute of the product model with error checking-->
+			<td>Product Name: </td><td><input type="text" th:field="*{ProductName}"></td><td><h5 style="color:red" th:if"{#fields.hasErrors('ProductName')}" th:errors="*{ProductName}">Name Error</h5></td>
+		</tr>
+		<tr>
+			<!--Product Image attribute of the product model with error checking-->
+			<td>Image: </td><td><input type="text" th:field="*{ProductImage}"></td><td><h5 style="color:red" th:if"{#fields.hasErrors('ProductImage')}" th:errors="*{ProductImage}">Image Error</h5></td>
+		</tr>
+		<tr>
+			<!--Product Category attribute of the product model with error checking-->
+				<td>Category: </td>
+			    <td><select class="form-control" th:field="*{ProductCategory}">
+			    	<option value="0">Select...</option>
+				    <option value="Hat">Hat</option>
+				    <option value="Sunglasses">Sunglasses</option>
+				    <option value="Mask">Mask</option>
+				    <option value="Wallet">Wallet</option>
+				    <option value="Backpack">Backpack</option>
+				    <option value="Other">Other</option>
+			    </select>
+			  </td><td><h5 style="color:red" th:if"{#fields.hasErrors('ProductCategory')}" th:errors="*{ProductCategory}">Category Error</h5></td>
+		</tr>
+		<tr>
+			<!--Product name attribute of the product model with error checking-->
+			<td>Price: </td><td><input type="text" th:field="*{ProductPrice}"></td><td><h5 style="color:red" th:if"{#fields.hasErrors('ProductPrice')}" th:errors="*{ProductPrice}">Price Error</h5></td>
+		</tr>
+		<tr>
+			<!--Product Stock attribute of the product model with error checking-->
+			<td>Stock: </td><td><input type="text" th:field="*{ProductStock}"></td><td><h5 style="color:red" th:if"{#fields.hasErrors('ProductStock')}" th:errors="*{ProductStock}">Stock Error</h5></td>
+		</tr>
+		<tr>
+			<td colspan="3"><input class="button center" type="submit" value="Submit" /></td>
+		</tr>
+	</table>
+	
+	<!--This is where all errors from the above form are displayed-->
+	<div th:if="${#fields.hasErrors('*')}">List of Errors</div>
+	<div th:each="err : ${#fields.errors('*')}">
+		<span style="color:red" th:text="${err}" class="fieldError"></span>
+	</div>
+	
+</form>
+</div>
+
+</body>
