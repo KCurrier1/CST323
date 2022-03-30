@@ -14,7 +14,7 @@
 	<name>CST323TestApplication</name>
 	<description>CST-323 Test Application</description>
 	<properties>
-		<java.version>11</java.version>
+		<java.version>15</java.version>
 	</properties>
 	<dependencies>
 		<dependency>
